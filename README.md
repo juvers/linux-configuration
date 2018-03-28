@@ -1,4 +1,4 @@
-# Linux Server Configuration Project
+# Ubuntu-Linux Server Configuration
 
 
 ## TL:DR
