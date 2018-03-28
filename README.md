@@ -98,17 +98,17 @@ Ensure you are logged in as grader. Should at anypoint a ubuntu password is requ
 2. Enable mod_wsgi (mod_wsgi package implements an Apache module which can host any Python web application which supports the Python WSGI specification.)`$ sudo a2enmod wsgi` and start the web server by `$ sudo service apache2 start` or `$ sudo service apache2 restart`
 3. Enter your public IP address in your browser now and the apache2 default page should be loaded.
 
-3. Create catalog folder to keep app and make grader owner and group of the folder
+4. Create catalog folder to keep app and make grader owner and group of the folder
 - `$ cd /var/www`
 - `$ sudo mkdir catalog`
 - `$ sudo chown -R grader:grader catalog`
 - `$ cd catalog`
 
-4. Clone the project from Github: `$ git clone [your link] catalog` (so folder path to app will become `var/www/catalog/catalog`)
+5. Clone the project from Github: `$ git clone [your link] catalog` (so folder path to app will become `var/www/catalog/catalog`)
 
 (The Web Server Gateway Interface (WSGI) is a specification for simple and universal interface between web servers and web applications or frameworks for the Python programming language.)
 
-5. Create a .wsgi file in `/var/www/catalog/`: `$sudo nano catalog.wsgi` and add the following into this file
+6. Create a .wsgi file in `/var/www/catalog/`: `$sudo nano catalog.wsgi` and add the following into this file
 ```
 #!/usr/bin/python
 import sys
@@ -120,11 +120,11 @@ from catalog import app as application
 application.secret_key = 'your_secret_key'
 ```
 
-6. In /var/www/catalog/catalog Rename the `app.py` to `__init__.py` as follows `mv app.py __init__.py`
+7. In /var/www/catalog/catalog Rename the `app.py` to `__init__.py` as follows `mv app.py __init__.py`
 
 (The venv module provides support for creating lightweight “virtual environments” with each virtual environment having its own Python binary. It allows the app have its own independent set of installed Python packages in its site directories.)
 
-7. Install virtual environment
+8. Install virtual environment
 - `$ sudo apt-get install python-pip`
 - `$ sudo pip install virtualenv`
 - `$ sudo virtualenv venv`
@@ -133,13 +133,13 @@ application.secret_key = 'your_secret_key'
 
 You should see a `(venv)` appears before your username in the command line.
 
-8. Install the Flask and other packages needed for this application
+9. Install the Flask and other packages needed for this application
 - `$ sudo pip install Flask`
 - `$ sudo pip install httplib2 oauth2client sqlalchemy psycopg2 sqlaclemy_utils requests`
 N.B. You may need to re-install outside the venv if some modules are missing such as `ImportError: No module named sqlalchemy`...sometimes there are some minimal compatibility issues between venv and some module installation
 
 
-9. Use the `nano __init__.py` command to change the `client_secrets.json` line to `/var/www/catalog/catalog/client_secrets.json` as follows `CLIENT_ID = json.loads(
+10. Use the `nano __init__.py` command to change the `client_secrets.json` line to `/var/www/catalog/catalog/client_secrets.json` as follows `CLIENT_ID = json.loads(
     open('/var/www/catalog/catalog/client_secrets.json', 'r').read())['web']['client_id']`
     Ensure to look through `__ini__.py` for every instance of this change and replace as stated.
     Also replace
@@ -155,7 +155,7 @@ N.B. You may need to re-install outside the venv if some modules are missing suc
     app.debug = True
     app.run()`
 
-10. Comfigure and enable the virtual host
+11. Comfigure and enable the virtual host
 N.B `sites-available/: This is an apache2 directory that contains all of the virtual host files that define different web sites. These will establish which content gets served for which requests.`
 
 - `$ sudo nano /etc/apache2/sites-available/catalog.conf`
@@ -184,14 +184,14 @@ N.B `sites-available/: This is an apache2 directory that contains all of the vir
 ```
 You can find your host name in this link: http://www.hcidata.info/host2ip.cgi
 
-11. Now we need to set up the database
+12. Now we need to set up the database
 - `$ sudo apt-get install libpq-dev python-dev`
 - `$ sudo apt-get install postgresql postgresql-contrib`
 - `$ sudo -u postgres -i`
 
 You should see the username changed again in command line, and type `$ psql` to get into postgres command line
 
-12. Create a user to create and set up the database. My database for example is named `catalog` and the user I am creating is also called `catalog`
+13. Create a user to create and set up the database. My database for example is named `catalog` and the user I am creating is also called `catalog`
 - `$ CREATE USER catalog WITH PASSWORD [your password];`
 - `$ ALTER USER catalog CREATEDB;`
 - `$ CREATE DATABASE catalog WITH OWNER catalog;`
@@ -209,15 +209,15 @@ List the existing roles: `\du`. The output should be like this:
    postgres  | Superuser, Create role, Create DB, Replication, Bypass RLS | {}
   ```
 
-13. use `sudo nano` command to change all engine to `engine = create_engine('postgresql://catalog:[your password]@localhost/catalog)` e.g engine = create_engine('postgresql://catalog:grader@localhost/catalog')
+14. use `sudo nano` command to change all engine to `engine = create_engine('postgresql://catalog:[your password]@localhost/catalog)` e.g engine = create_engine('postgresql://catalog:grader@localhost/catalog')
 Base.metadata.bind = engine.
 Ensure to do this in the database_setup.py and the populatedDatabase.py(i.e. in 3 places)
 
-14. Initiate the database if you have a script to do so: `python database_setup.py `
+15. Initiate the database if you have a script to do so: `python database_setup.py `
 
-15. Restart Apache server `$ sudo service apache2 restart` and enter your public IP address or host name into the browser. Hooray! Your application should be online now!
+16. Restart Apache server `$ sudo service apache2 restart` and enter your public IP address or host name into the browser. Hooray! Your application should be online now!
 
-16. Lastly but very importantly, if default apache2 page persists, it means you have not enabled your site then execute `sudo a2ensite [name of app]`...'Name of app' here would be the folder the app is saved in inside /var/www/catalog/catalog for example mine is `sudo a2ensite catalog`
+17. Lastly but very importantly, if default apache2 page persists, it means you have not enabled your site then execute `sudo a2ensite [name of app]`...'Name of app' here would be the folder the app is saved in inside /var/www/catalog/catalog for example mine is `sudo a2ensite catalog`
 
 ## Appendix:
 N.B.
@@ -226,7 +226,7 @@ I. Some apache2 testing tools to check appropriateness of workflow
 `apache2ctl -t`
 `apache2ctl -S`
 
-II. Folder structure
+II. Project Folder(s) structure
 ```
 /var/www/catalog
     |-- catalog.wsgi
