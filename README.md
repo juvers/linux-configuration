@@ -155,7 +155,7 @@ N.B. You may need to re-install outside the venv if some modules are missing suc
     app.debug = True
     app.run()`
 
-11. Comfigure and enable the virtual host
+11. Configure and enable the virtual host
 N.B `sites-available/: This is an apache2 directory that contains all of the virtual host files that define different web sites. These will establish which content gets served for which requests.`
 
 - `$ sudo nano /etc/apache2/sites-available/catalog.conf`
