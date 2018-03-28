@@ -14,17 +14,17 @@ IP Address: 18.217.235.171
 
 2. After you log in, click 'Create Instance';
 
-3. Select Platform and  blueprint
+3. Select Platform (linux) and  blueprint (ubuntu)
 
 4. Scroll down to name your instance and click 'Create'
 
-5. The instance needs +or-2 mins to set up. After it is set up, you will see 'running' in the left corner of the status card. Take note of the public IP.
+5. The instance needs about 2 mins to set up. After it is set up, you will see 'running' in the left corner of the status card with the representations brighter. Take note of the public IP.
 
-6. Click the status card and navigate to networking
+6. Click the status card and navigate to account
 
 7. Download your private key which is a .pem file.
 
-8. Click the 'Networking' tab and find the 'Add another' at the bottom. Add port 123 and 2200.
+8. Click the 'Networking' tab and find the 'Add another' at the bottom. Add port 123 (udp) and 2200(tcp).
 
 ## Server Configuration
 
