@@ -276,7 +276,6 @@ Profound gratitude to:
 - https://github.com/boisalai/udacity-linux-server-configuration
 
 Other Resources:
-- https://discussions.udacity.com/c/nd004-p7-linux-based-server-configuration
 - https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps
 - Official Ubuntu Documentation, [Automatic Updates](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
 - Ubuntu Wiki, [AutomaticSecurityUpdates](https://help.ubuntu.com/community/AutomaticSecurityUpdates).
