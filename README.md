@@ -42,7 +42,7 @@ N.B. From here take note of the use of first and second instances of terminals. 
 
 6. Create a new file in the sudoers directory: `$ sudo nano /etc/sudoers.d/grader`. And give grader the super permisssion `grader ALL=(ALL:ALL) ALL`. In nano save with (control X, then type `yes`, then hit the return key on your keyboard)
 
-7. In order to prevent the `$ sudo: unable to resolve host` error, edit the hosts by `$ sudo nano /etc/hosts`, and then add `127.0.0.1 ip-10-20-37-65` under `127.0.0.1:localhost`
+7. In order to prevent the `$ sudo: unable to resolve host` error, edit the hosts by `$ sudo nano /etc/hosts`, and then add `127.0.0.1 ip-10-20-37-65` ***n.b. this is your machine ip*** under `127.0.0.1:localhost`
 
 8. Run the following commands to update all packages and install finger package:
 - `$ sudo apt-get update`
