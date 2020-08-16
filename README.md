@@ -3,10 +3,6 @@
 
 ## TL:DR
 
-Host Name: http://ec2-18-217-235-171.us-east-2.compute.amazonaws.com/
-
-IP Address: 18.217.235.171
-
 ## Amazon Lightsail Server Set Up
 
 1. [Visit Amazon Lightsail](https://signin.aws.amazon.com/signin?redirect_uri=https%3A%2F%2Flightsail.aws.amazon.com%2Fls%2Fwebapp%3Fstate%3DhashArgs%2523%26isauthcode%3Dtrue&client_id=arn%3Aaws%3Aiam%3A%3A015428540659%3Auser%2Fparksidewebapp&forceMobileApp=0) and create a new AWS account:
