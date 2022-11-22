@@ -266,12 +266,9 @@ The `unattended-upgrades` package can be used to automatically install important
 - Restart Apache: `sudo service apache2 restart`.
 
 ## Reference
-Profound gratitude to:
 - https://github.com/callforsky/udacity-linux-configuration
 - https://github.com/twhetzel/ud299-nd-linux-server-configuration
 - https://github.com/boisalai/udacity-linux-server-configuration
-
-Other Resources:
 - https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps
 - Official Ubuntu Documentation, [Automatic Updates](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
 - Ubuntu Wiki, [AutomaticSecurityUpdates](https://help.ubuntu.com/community/AutomaticSecurityUpdates).
